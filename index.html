@@ -108,19 +108,17 @@
                 const pokedex = document.createElement('div');
                 pokedex.classList.add('pokemon');
 
-                const poke_types = pokemon.types[0].type.name;
-                const type = main_types.find(type => poke_types.indexOf(type) > -1);
+                const type = pokemon.types[0].type.name;
                 const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
                 const color = colors[type];
+                const imgsrc = pokemon.sprites.other.dream_world.front_default; 
                 
                 pokedex.style.backgroundColor = color;
 
                 const pokeInnerHTML = `
                     <p class="number">${pokemon.id}: ${name}</p>
                     <div class="img-container">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
-                                        pokemon.id
-                                    }.svg" alt="${name}" />
+                        <img src="${imgsrc}" alt="${name}" />
                     </div>
                     <div class="info">
                         <p class="type">type: ${type}</p>
